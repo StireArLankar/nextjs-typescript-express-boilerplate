@@ -1,62 +1,9 @@
-import Layout from 'Components/MyLayout'
-import Link from 'next/link'
+import React from 'react'
+import Shows from 'Components/Shows'
 import fetch from 'isomorphic-unfetch'
 
-const ShowLink = ({ show }) => (
-  <li key={show.id}>
-    <Link as={`/p/${show.id}`} href={`/post?id=${show.id}`}>
-      <a>{show.name}</a>
-    </Link>
-    <style jsx>{`
-      li {
-        list-style: none;
-        margin: 5px 0;
-      }
-
-      a {
-        text-decoration: none;
-        color: blue;
-      }
-
-      a:hover {
-        opacity: 0.6;
-      }
-    `}</style>
-  </li>
-)
-
 const Index = (props) => (
-  <Layout>
-    <h1>Batman TV Shows</h1>
-    <ul>
-      {props.shows.map(({show}) => (
-        <ShowLink key={show.id} show={show} />
-      ))}
-    </ul>
-    <style jsx>{`
-      h1, a {
-        font-family: "Arial";
-      }
-
-      ul {
-        padding: 0;
-      }
-
-      li {
-        list-style: none;
-        margin: 5px 0;
-      }
-
-      a {
-        text-decoration: none;
-        color: blue;
-      }
-
-      a:hover {
-        opacity: 0.6;
-      }
-    `}</style>
-  </Layout>
+  <Shows shows={props.shows} />
 )
 
 Index.getInitialProps = async () => {

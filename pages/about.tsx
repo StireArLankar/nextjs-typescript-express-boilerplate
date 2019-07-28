@@ -1,7 +1,7 @@
-import Layout from '../components/MyLayout'
+import React, { Fragment } from 'react'
 
 export default () => (
-  <Layout>
+  <Fragment>
     <p>This is the about page</p>
-  </Layout>
+  </Fragment>
 )
